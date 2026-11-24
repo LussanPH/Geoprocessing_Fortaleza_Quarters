@@ -3,4 +3,3 @@ __pycache__/
 mapa.html
 data/*
 !data/.gitkeep
-img/
