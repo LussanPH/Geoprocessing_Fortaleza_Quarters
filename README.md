@@ -13,6 +13,7 @@ Projeto de análise espacial que guarda dados territoriais no PostgreSQL/PostGIS
 ├── pyproject.toml / uv.lock   # dependências (uv)
 ├── requirements.txt           # dependências (pip)
 ├── data/                      # arquivo de bairros (ignorado pelo git)
+├── img/                       # imagem do mapa web (image.png) e layout do QGIS (mapa.pdf)
 ├── scripts/
 │   ├── common.py              # conexão com o banco e CRS de trabalho (EPSG:31984)
 │   ├── load_bairros.py        # carrega os bairros e reprojeta para 31984
@@ -164,6 +165,7 @@ No QGIS:
 3. Em Projeto → Propriedades → SRC, defina **EPSG:31984**.
 4. Simbologia sugerida: `vw_hotspots_250m` como **Graduado** por `denuncias_90d`; `denuncias` como **Mapa de calor**; `bairros` só com contorno.
 5. O **DB Manager** permite rodar uma consulta de `02_consultas.sql` e adicionar o resultado ao mapa como camada.
+6. Um layout de impressão exportado em PDF fica em [img/mapa.pdf](img/mapa.pdf).
 
 ### 8. Experimento de CRS
 
@@ -193,5 +195,9 @@ Gera `mapa.html` com:
 - contorno dos bairros;
 - células de 250 m coloridas por número de denúncias em 90 dias, com o número de denúncias sem vistoria no tooltip;
 - as 500 denúncias pendentes de descarte irregular mais recentes (camada desligada por padrão).
+
+![Mapa web com as células de recorrência de descarte irregular e as denúncias pendentes em Fortaleza](img/image.png)
+
+*Mapa web (`mapa.html`) com a camada de denúncias pendentes ligada.*
 
 O mapa de fundo precisa de internet. O banco trabalha em 31984, e o script reprojeta para 4326 só na saída, porque mapas web esperam lat/long. O arquivo `mapa.html` é ignorado pelo git.
