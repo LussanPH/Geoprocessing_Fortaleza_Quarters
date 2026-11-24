@@ -1,0 +1,5 @@
+.venv/
+__pycache__/
+mapa.html
+data/*
+!data/.gitkeep

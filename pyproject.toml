@@ -1,0 +1,15 @@
+[project]
+name = "geing-agefis"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "folium>=1.0.0",
+    "geopandas>=1.0",
+    "numpy>=2.5.5",
+    "psycopg2-binary>=2.9.13",
+    "pyogrio>=0.13.0",
+    "shapely>=2.0",
+    "sqlalchemy>=2.0",
+]

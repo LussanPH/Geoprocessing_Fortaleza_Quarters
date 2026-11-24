@@ -1,0 +1,17 @@
+# Banco PostgreSQL 16 com PostGIS 3.5 já instalado.
+services:
+  db:
+    image: postgis/postgis:16-3.5
+    container_name: geing-db
+    environment:
+      POSTGRES_USER: geing
+      POSTGRES_PASSWORD: geing
+      POSTGRES_DB: geing
+    ports:
+      - "5434:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./sql:/sql:ro        # permite rodar: psql -f /sql/arquivo.sql (funciona em Windows, Mac e Linux)
+
+volumes:
+  pgdata:
